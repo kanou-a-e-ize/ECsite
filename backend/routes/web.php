@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('auth/login', function () {
+    return view('auth/login');
+});
+
+Route::get('product/shopindex', 'ShopController@index');
+
+//Route::middleware(['auth:sanctum', 'verified'])->get('product/shopindex', 'ShopController@index');
+
+Route::get('product/create', 'ShopController@create');
+
+Route::post('/post', 'ShopController@store');
+
+Route::delete('/product/{p_id}', 'ShopController@destroy');
+
