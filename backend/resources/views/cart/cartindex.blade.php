@@ -14,7 +14,7 @@
 
                 @foreach($products as $product)
                <td>
-                    <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('cart/storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150"></a><br>
+                    <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150"></a><br>
                     商品名：{{ $product->p_name }}<br>
                     単価（税抜）：{{ $product->p_price }} 円<br>
                 </td>   

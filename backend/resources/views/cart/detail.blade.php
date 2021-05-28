@@ -17,9 +17,9 @@
                 商品説明：{{ $product->p_detail }}<br>
                 単価（税抜）：{{ $product->p_price }} 円<br>
                 
-                <img src="{{ asset('cart/storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="200" height="200">
-                <img src="{{ asset('cart/storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="200" height="200">
-                <img src="{{ asset('cart/storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="200" height="200">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="200" height="200">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="200" height="200">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="200" height="200">
               
             <div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
