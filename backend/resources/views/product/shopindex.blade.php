@@ -26,6 +26,7 @@
                 
                     <td>
                         <form action="/product/{{ $product->p_id }}" method="post">
+                        @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>
@@ -36,7 +37,7 @@
             </table>
             <div>
                 <a href="create" class="btn btn-default">商品登録</a>
-                <a href="order" class="btn btn-default">注文一覧</a>
+                <a href="manageorder" class="btn btn-default">注文一覧</a>
             </div>
         </div>
     </div>

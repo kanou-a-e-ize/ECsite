@@ -32,25 +32,33 @@ class ShopController extends Controller
     }
     
     public function store(ProductRequest $request)
-    {   
-       
-        // 画像ファイルのパス
-        $img1_url = $request->image1->store('public/upload');
-        $img2_url = $request->image2->store('public/upload');
-        $img3_url = $request->image3->store('public/upload');
-
+    {    
         // DB更新処理
         $product = new Product();
         $product->p_name = $request->p_name;
         $product->p_detail = $request->p_detail;
         $product->p_price = $request->p_price;
+
+        $images = ['image1', 'image2', 'image3'];
         
-        $image1 = str_replace('public/upload', '', $img1_url);
-        $product->image1 = $request->image1;
-        $image2 = str_replace('public/upload', '', $img2_url);
-        $product->image2 = $request->image2;
-        $image3 = str_replace('public/upload', '', $img3_url);
-        $product->image3 = $request->image3;
+        foreach($images as $image){
+
+        //拡張子付きでファイル名を取得
+        $filenameWithExt = $request->file("$image")->getClientOriginalName();
+
+        //ファイル名のみを取得
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        //拡張子を取得
+        $extension = $request->file("$image")->getClientOriginalExtension();
+
+        //保存のファイル名を構築
+        $filenameToStore = $filename."_".time().".".$extension;
+
+        $path = $request->file("$image")->storeAs("public/upload", $filenameToStore);
+       
+        $product->$image = $filenameToStore;
+        }
 
         $product->save();
     
@@ -63,6 +71,11 @@ class ShopController extends Controller
         $product->delete();
     
         return redirect("/product/shopindex");
+    }
+
+    public function order()
+    {
+        return view('/product/manageorder');
     }
 }
 

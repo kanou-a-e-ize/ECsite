@@ -28,12 +28,9 @@ class ProductRequest extends FormRequest
             'p_name' => 'required|max:100',
             'p_detail' => 'required|max:255',
             'p_price' => 'required|integer',
-            'image1' => 'required|file',
-            'image1' => 'dimensions:max_width=920,max_height=920',
-            'image2' => 'required|file',
-            'image2' => 'dimensions:max_width=920,max_height=920',
-            'image3' => 'required|file',
-            'image3' => 'dimensions:max_width=920,max_height=920',
+            'image1' => 'required|file|dimensions:max_width=920,max_height=920',
+            'image2' => 'required|file|dimensions:max_width=920,max_height=920',
+            'image3' => 'required|file|dimensions:max_width=920,max_height=920',
           ];
     }
 }

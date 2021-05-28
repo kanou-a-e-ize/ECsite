@@ -195822,5 +195822,9 @@ select {
   .\32xl\:backdrop-sepia {
     --tw-backdrop-sepia: sepia(100%);
   }
+
+.flex_test-box {
+    display: flex;
+}
 }
 

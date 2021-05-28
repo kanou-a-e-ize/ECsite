@@ -41,7 +41,7 @@
                     <br>
 
                     <button type="submit" class="btn btn-default">保存</button>
-                    <a href="/product/shopindex">戻る</a>
+                    <a href="shopindex">戻る</a>
                 </form>
             </div>
         </div>
