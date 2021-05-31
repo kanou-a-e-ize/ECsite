@@ -12,7 +12,7 @@
             <div class="col-md-8 col-md-offset-1">
              @include('Product/message')
                 <form action="/post" method="post" onSubmit="return checkSubmit()" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @csrf
                     <div class="form-group">
                         <label for="p_name">商品名</label>
                         <input type="text" class="form-control" name="p_name" value="{{ $product->p_name }}">

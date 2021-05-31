@@ -21,7 +21,7 @@
                 @endforeach
             </table>
             <div>
-                <a href="mycart" class="btn btn-default">カート確認</a>
+                <a href="/cart/mycart" class="btn btn-default">カート内容確認</a>
             </div>
         </div>
     </div>

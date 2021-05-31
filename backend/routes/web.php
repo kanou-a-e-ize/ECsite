@@ -34,7 +34,7 @@ Route::get('product/manageorder', 'ShopController@order');
 
 Route::delete('product/{p_id}', 'ShopController@destroy');
 
-Route::get('cart/cartindex', 'CartController@index');
+Route::get('cart', 'CartController@index');
 
 Route::get('/', 'CartController@index');
 
@@ -42,6 +42,9 @@ Route::get('cart/{p_id}/detail', 'CartController@detail');
 
 
 Route::post('cart/{p_id}/store', 'CartController@store');
-// Route::get('cart/{p_id}/mycart', 'CartController@mycart');
 
 Route::get('cart/mycart', 'CartController@mycart');
+
+Route::delete('cart/{stock_id}', 'CartController@destroy');
+
+Route::get('cart/address', 'CartController@address');

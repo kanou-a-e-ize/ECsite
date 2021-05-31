@@ -22,12 +22,22 @@
                 <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="200" height="200">
               
             <div>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="p_id" value="{{ $product->p_id }}">
-                <input type="submit" value="カートに入れる">
+               
+                <form action="/cart/{{ $product->p_id }}/store" method="post">
+                @csrf
+                    <input type="hidden" name="stock_p_id" value="{{ $product->p_id }}" >
+                    <input type="hidden" name="stock_p_name" value="{{ $product->p_name }}" >
+                    <input type="hidden" name="stock_p_price" value="{{ $product->p_price }}" >
+
+                    <label for="stock_number">購入個数</label>
+                    <div class="">
+                        <input type="number" value="1" min="1" name="stock_number" >
+                        <lavel class="stock_number">個</lavel>
+                    </div>
+                <br>
+                <button type="submit" class="btn btn-default">カートに入れる</button>
+                <a href="/cart">商品一覧に戻る</a>
             </div>
-                  
-                <a href="/">商品一覧に戻る</a>
     </div>
     @endsection
 </html>
