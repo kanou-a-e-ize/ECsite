@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ShopController;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\Order;
 use App\Http\Controllers\Auth;
 
 class ShopController extends Controller
@@ -62,7 +63,7 @@ class ShopController extends Controller
 
         $product->save();
     
-        return redirect("/product/shopindex");
+        return redirect("/shopindex");
     }
     
     public function destroy($p_id)
@@ -70,12 +71,13 @@ class ShopController extends Controller
         $product = Product::findOrFail($p_id);
         $product->delete();
     
-        return redirect("/product/shopindex");
+        return redirect("/shopindex");
     }
 
     public function order()
     {
-        return view('/product/manageorder');
+        $orders = Order::all();
+        return view('product/manageorder', compact('orders'));
     }
 }
 

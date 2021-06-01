@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +23,15 @@ Route::get('auth/login', function () {
     return view('auth/login');
 });
 
-Route::get('product/shopindex', 'ShopController@index');
+Route::get('shopindex', 'ShopController@index');
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('product/shopindex', 'ShopController@index');
 
-Route::get('product/create', 'ShopController@create')->name("create_product");
+Route::get('create', 'ShopController@create');
 
-Route::post('post', 'ShopController@store')->name("upload_product");
+Route::post('post', 'ShopController@store');
 
-Route::get('product/manageorder', 'ShopController@order');
+Route::get('manageorder', 'ShopController@order');
 
 Route::delete('product/{p_id}', 'ShopController@destroy');
 
@@ -48,3 +49,9 @@ Route::get('cart/mycart', 'CartController@mycart');
 Route::delete('cart/{stock_id}', 'CartController@destroy');
 
 Route::get('cart/address', 'CartController@address');
+
+Route::post('cart/post', 'CartController@resister');
+
+Route::get('cart/ordered', function () {
+    return view('cart/ordered');
+});

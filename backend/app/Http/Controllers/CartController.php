@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CustomerRequest;
 use App\Http\Controllers\CartController;
 use App\Models\Product;
 use App\Models\Stock;
+use App\Models\Customer;
+use App\Models\Order;
 
 
 class CartController extends Controller
@@ -23,37 +26,52 @@ class CartController extends Controller
         return view('cart/detail', compact('product'));
     }
 
-    public function mycart()
+    public function store(Request $request)
     {
-        $stocks = Stock::all();
-        return view('cart/mycart', compact('stocks'));
-    }
+        $order = new Order;
+        $order->order_p_id = $request->order_p_id;
+        $order->order_p_name = $request->order_p_name;
+        $order->order_p_price = $request->order_p_price;
+        $order->order_p_number = $request->order_p_number;
 
-    public function store(Request $request, $stock_id)
-    {
-        $stock = new Stock;
-        $stock->stock_p_id = $request->stock_p_id;
-        $stock->stock_p_name = $request->stock_p_name;
-        $stock->stock_p_price = $request->stock_p_price;
-        $stock->stock_number = $request->stock_number;
-
-        $stock->save();
+        $order->save();
         
         return redirect('cart/mycart');
+    }
+
+    public function mycart()
+    {
+        $orders = Order::all();
+        return view('cart/mycart', compact('orders'));
     }
 
     public function destroy($stock_id)
     {
-        $stock = Stock::findOrFail($stock_id);
-        $stock->delete();
+        $order = Order::findOrFail($stock_id);
+        $order->delete();
     
         return redirect('cart/mycart');
     }
 
-    public function address(Request $request)
+    public function address()
     {
+        $customer = new Customer();
+        return view('cart/address', compact('customer'));
+    }
 
-        
-        return view('cart/address');
+    public function resister(CustomerRequest $request)
+    {
+        $customer = new Customer;
+        $customer->c_name = $request->c_name;
+        $customer->c_name_kana = $request->c_name_kana;
+        $customer->postcode = $request->postcode;
+        $customer->prefecture = $request->prefecture;
+        $customer->city = $request->city;
+        $customer->street = $request->street;
+        $customer->c_phone = $request->c_phone;
+        $customer->c_mail = $request->c_mail;
+        $customer->save();
+
+        return redirect('cart/ordered');
     }
 }

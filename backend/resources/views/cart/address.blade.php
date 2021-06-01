@@ -10,46 +10,44 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
-             @include('Product/message')
-                <form action="/post" method="post" onSubmit="return checkSubmit()" enctype="multipart/form-data">
+            @include('Cart/message')
+                <form action="/cart/post" method="post" onSubmit="return checkSubmit()" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="c_name">お名前</label>
-
+                        <input type="text" class="form-control" name="c_name" value="{{ $customer->c_name }}">
                     </div>
                     <div class="form-group">
-                        <label for="c_name_kana">お名前（フリガナ）</label>
-    
+                        <label for="c_name_kana">お名前フリガナ（全角カナ）</label>
+                        <input type="text" class="form-control" name="c_name_kana" value="{{ $customer->c_name_kana }}">
                     </div>
                     <div class="form-group">
-                        <label for="postcode">郵便番号</label>
-                        
+                        <label for="postcode">郵便番号（ハイフン不要）</label>
+                        <input type="text" class="form-control" name="postcode" value="{{ $customer->postcode }}">
                     </div>
                     <div class="form-group">
                         <label for="prefecture">都道府県</label>
-                        
+                        <input type="text" class="form-control" name="prefecture" value="{{ $customer->prefecture }}">
                     </div>
                     <div class="form-group">
                         <label for="city">市区町村</label>
-                        
+                        <input type="text" class="form-control" name="city" value="{{ $customer->city }}">
                     </div>
                     <div class="form-group">
                         <label for="street">それ以降の住所</label>
-                       
+                        <input type="text" class="form-control" name="street" value="{{ $customer->street }}">
                     </div>
                     <div class="form-group">
-                        <label for="c_phone">それ以降の住所</label>
-                        
+                        <label for="c_phone">電話番号（ハイフン不要）</label>
+                        <input type="text" class="form-control" name="c_phone" value="{{ $customer->c_phome }}">
                     </div>
                     <div class="form-group">
                         <label for="c_mail">メールアドレス</label>
-                       
+                        <input type="text" class="form-control" name="c_mail" value="{{ $customer->c_mail }}">
                     </div>
 
-                    <br>
-
                     <button type="submit" class="btn btn-default">注文確定</button>
-                    <a href="/cart">商品一覧に戻る</a>
+                    <a href="/cart/mycart">カート内容確認に戻る</a>
                 </form>
             </div>
         </div>
