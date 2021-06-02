@@ -28,35 +28,41 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        $order = new Order;
-        $order->order_p_id = $request->order_p_id;
-        $order->order_p_name = $request->order_p_name;
-        $order->order_p_price = $request->order_p_price;
-        $order->order_p_number = $request->order_p_number;
+        $stock = new Stock;
+        $stock->stock_p_id = $request->stock_p_id;
+        $stock->stock_p_name = $request->stock_p_name;
+        $stock->stock_p_price = $request->stock_p_price;
+        $stock->stock_p_number = $request->stock_p_number;
 
-        $order->save();
+        $stock->save();
         
         return redirect('cart/mycart');
     }
 
     public function mycart()
     {
-        $orders = Order::all();
-        return view('cart/mycart', compact('orders'));
+        $stocks = Stock::all();
+        return view('cart/mycart', compact('stocks'));
     }
-
+    
     public function destroy($stock_id)
     {
-        $order = Order::findOrFail($stock_id);
-        $order->delete();
+        $stock = Stock::findOrFail($stock_id);
+        $stock->delete();
     
         return redirect('cart/mycart');
     }
 
-    public function address()
+    public function order(Request $request)
     {
-        $customer = new Customer();
-        return view('cart/address', compact('customer'));
+        $order = new Order;
+        $order->order_p_id = $request->order_p_id;
+        $order->order_p_name = $request->order_p_name;
+        $order->order_p_price = $request->order_p_price;
+        $order->order_p_number = $request->order_p_number;
+        $order->save();
+
+        return view('cart/address', compact('order'));
     }
 
     public function resister(CustomerRequest $request)
@@ -70,6 +76,11 @@ class CartController extends Controller
         $customer->street = $request->street;
         $customer->c_phone = $request->c_phone;
         $customer->c_mail = $request->c_mail;
+        $customer->c_p_id = $request->c_p_id;
+        $customer->c_p_name = $request->c_p_name;
+        $customer->c_p_price = $request->c_p_price;
+        $customer->c_p_number = $request->c_p_number;
+
         $customer->save();
 
         return redirect('cart/ordered');

@@ -9,8 +9,9 @@
         </div>
     </div>
 
-    @if($orders->isNotEmpty())
-            <div class="col-md-11 col-md-offset-1">
+    @if($stocks->isNotEmpty())
+        <div class="col-md-11 col-md-offset-1">
+        
             <table class="table text-center">
                 <tr>
                     <th class="text-center">商品名</th>
@@ -19,34 +20,40 @@
                     <th class="text-center">小計（税抜）円</th>
                     <th class="text-center">削除</th>
                 </tr>
-                
-            @foreach($orders as $order)
+            
+            @foreach($stocks as $stock)
                 <tr>
-                    <td>{{ $order->prder_p_name }}</td>
-                    <td>{{ $order->order_p_price }}</td>
-                    <td>{{ $order->order_p_number }}</td>
-                    <td>{{ $order->order_p_number*$order->order_p_price}}</td>
+                    <td>{{ $stock->stock_p_name }}</td>
+                    <td>{{ $stock->stock_p_price }}</td>
+                    <td>{{ $stock->stock_p_number }}</td>
+                    <td>{{ $stock->stock_p_number*$stock->stock_p_price}}</td>
+                    
                     <td>
-                        <form action="/cart/{{ $order->order_id }}" method="post">
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>
+                        <form action="/cart/{{ $stock->stock_id }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
-                </table>
-
-            
+            @endforeach
+            </table>
 
     @else
-    <p class="text-center">注文情報がありません...!</p>
+        <p class="text-center">注文情報がありません...!</p>
     @endif
-    <a href="/cart/address" class="btn btn-default">住所入力</a>
-    <a href="/cart">商品一覧に戻る</a>
-        </table>
-    </div> 
+
+            <form action="/cart/address" method="post">
+                @csrf
+                    <input type="hidden" name="order_p_id" value="{{ $stock->stock_p_id }}" >
+                    <input type="hidden" name="order_p_name" value="{{ $stock->stock_p_name }}" >
+                    <input type="hidden" name="order_p_price" value="{{ $stock->stock_p_price }}" >
+                    <input type="hidden" name="order_p_number" value="{{ $stock->stock_p_number }}" >       
+                <button type="submit" class="btn btn-default">住所入力</button>
+            </form>      
+
+            <a href="/cart">商品一覧に戻る</a>  
+        </div> 
 
     @endsection
 </html>

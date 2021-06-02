@@ -20,9 +20,6 @@
                 </td>   
                 @endforeach
             </table>
-            <div>
-                <a href="/cart/mycart" class="btn btn-default">カート内容確認</a>
-            </div>
         </div>
     </div>
     @endsection

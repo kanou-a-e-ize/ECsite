@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\ShopController;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
-use App\Models\Order;
+use App\Models\Customer;
 use App\Http\Controllers\Auth;
 
 class ShopController extends Controller
@@ -46,13 +47,10 @@ class ShopController extends Controller
 
         //拡張子付きでファイル名を取得
         $filenameWithExt = $request->file("$image")->getClientOriginalName();
-
         //ファイル名のみを取得
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
         //拡張子を取得
         $extension = $request->file("$image")->getClientOriginalExtension();
-
         //保存のファイル名を構築
         $filenameToStore = $filename."_".time().".".$extension;
 
@@ -62,13 +60,19 @@ class ShopController extends Controller
         }
 
         $product->save();
-    
         return redirect("/shopindex");
     }
     
     public function destroy($p_id)
     {
         $product = Product::findOrFail($p_id);
+        $deletimage1 = $product->image1;
+        $deletimage2 = $product->image2;
+        $deletimage3 = $product->image3;
+        Storage::delete('public/upload/' . $deletimage1);
+        Storage::delete('public/upload/' . $deletimage2);
+        Storage::delete('public/upload/' . $deletimage3);
+
         $product->delete();
     
         return redirect("/shopindex");
@@ -76,8 +80,8 @@ class ShopController extends Controller
 
     public function order()
     {
-        $orders = Order::all();
-        return view('product/manageorder', compact('orders'));
+        $customers = Customer::all();
+        return view('product/manageorder', compact('customers'));
     }
 }
 

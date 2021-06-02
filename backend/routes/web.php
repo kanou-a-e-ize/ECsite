@@ -48,7 +48,7 @@ Route::get('cart/mycart', 'CartController@mycart');
 
 Route::delete('cart/{stock_id}', 'CartController@destroy');
 
-Route::get('cart/address', 'CartController@address');
+Route::post('cart/address', 'CartController@order');
 
 Route::post('cart/post', 'CartController@resister');
 
