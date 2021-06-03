@@ -5,11 +5,11 @@
     <div class="container ops-main">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="ops-title">注文情報</h3>
+            <h3 class="ops-title">カート確認</h3>
         </div>
     </div>
 
-    @if($stocks->isNotEmpty())
+    @if($orders->isNotEmpty())
         <div class="col-md-11 col-md-offset-1">
         
             <table class="table text-center">
@@ -21,15 +21,15 @@
                     <th class="text-center">削除</th>
                 </tr>
             
-            @foreach($stocks as $stock)
+            @foreach($orders as $order)
                 <tr>
-                    <td>{{ $stock->stock_p_name }}</td>
-                    <td>{{ $stock->stock_p_price }}</td>
-                    <td>{{ $stock->stock_p_number }}</td>
-                    <td>{{ $stock->stock_p_number*$stock->stock_p_price}}</td>
+                    <td>{{ $order->order_p_name }}</td>
+                    <td>{{ $order->order_p_price }}</td>
+                    <td>{{ $order->order_p_number }}</td>
+                    <td>{{ $order->order_p_number*$order->order_p_price}}</td>
                     
                     <td>
-                        <form action="/cart/{{ $stock->stock_id }}" method="post">
+                        <form action="/cart/{{ $order->order_id }}" method="post">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>
@@ -42,16 +42,8 @@
     @else
         <p class="text-center">注文情報がありません...!</p>
     @endif
-
-            <form action="/cart/address" method="post">
-                @csrf
-                    <input type="hidden" name="order_p_id" value="{{ $stock->stock_p_id }}" >
-                    <input type="hidden" name="order_p_name" value="{{ $stock->stock_p_name }}" >
-                    <input type="hidden" name="order_p_price" value="{{ $stock->stock_p_price }}" >
-                    <input type="hidden" name="order_p_number" value="{{ $stock->stock_p_number }}" >       
-                <button type="submit" class="btn btn-default">住所入力</button>
-            </form>      
-
+    
+            <a href="/cart/address" class="btn btn-default">住所入力</a>
             <a href="/cart">商品一覧に戻る</a>  
         </div> 
 

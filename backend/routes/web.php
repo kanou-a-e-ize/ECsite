@@ -25,8 +25,6 @@ Route::get('auth/login', function () {
 
 Route::get('shopindex', 'ShopController@index');
 
-//Route::middleware(['auth:sanctum', 'verified'])->get('product/shopindex', 'ShopController@index');
-
 Route::get('create', 'ShopController@create');
 
 Route::post('post', 'ShopController@store');
@@ -37,21 +35,18 @@ Route::delete('product/{p_id}', 'ShopController@destroy');
 
 Route::get('cart', 'CartController@index');
 
-Route::get('/', 'CartController@index');
-
 Route::get('cart/{p_id}/detail', 'CartController@detail');
-
 
 Route::post('cart/{p_id}/store', 'CartController@store');
 
 Route::get('cart/mycart', 'CartController@mycart');
 
-Route::delete('cart/{stock_id}', 'CartController@destroy');
+Route::delete('cart/{order_id}', 'CartController@destroy');
 
-Route::post('cart/address', 'CartController@order');
+Route::get('cart/address', 'CartController@address');
 
 Route::post('cart/post', 'CartController@resister');
 
-Route::get('cart/ordered', function () {
-    return view('cart/ordered');
+Route::get('cart/checkout', function () {
+    return view('cart/checkout');
 });

@@ -46,11 +46,6 @@
                         <input type="text" class="form-control" name="c_mail" value="">
                     </div>
 
-                    <input type="hidden" name="c_p_id" value="{{ $order->order_p_id }}" >
-                    <input type="hidden" name="c_p_name" value="{{ $order->order_p_name }}" >
-                    <input type="hidden" name="c_p_price" value="{{ $order->order_p_price }}" >
-                    <input type="hidden" name="c_p_number" value="{{ $order->order_p_number }}" > 
-
                     <button type="submit" class="btn btn-default">注文確定</button>
                 </form>
                 <br>

@@ -14,7 +14,7 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->Increments('order_id');
+            $table->unsignedBigInteger('order_id')->autoIncrement();
             $table->Integer('order_p_id');
             $table->string('order_p_name', 100);
             $table->Integer('order_p_price');
@@ -29,6 +29,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_stocks');
+        Schema::dropIfExists('_orders');
     }
 }
