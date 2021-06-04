@@ -13,13 +13,15 @@ class CreateCustomerOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_orders', function (Blueprint $table) {
+        Schema::create('customer_order', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('customer_id')->comment('顧客ID');
-            $table->unsignedBigInteger('order_id')->comment('注文ID');
+            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('order_id');
 
-            $table->foreign('customer_id')->references('customer_id')->on('customers');
-            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

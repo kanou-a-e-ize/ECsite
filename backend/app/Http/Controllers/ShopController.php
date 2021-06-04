@@ -8,6 +8,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\Order;
 use App\Http\Controllers\Auth;
 
 class ShopController extends Controller
@@ -78,10 +79,15 @@ class ShopController extends Controller
         return redirect("/shopindex");
     }
 
-    public function order()
+    public function order(Customer $customer, Order $orders)
     {
-        $customers = Customer::all();
-        return view('product/manageorder', compact('customers'));
+        
+        //$id = $customer->id;
+        //$customer = Customer::find($id);
+
+        $orders = Order::with('customers')->get();
+
+        return view('product/manageorder', ['orders' => $orders, 'customer' => $customer]);
     }
 }
 

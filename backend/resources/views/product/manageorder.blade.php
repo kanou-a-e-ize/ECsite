@@ -21,16 +21,16 @@
                     <th class="text-center">顧客ID</th>
                     <th class="text-center">顧客名</th>
                 </tr>
-                @foreach($customers as $customer)
+                @foreach($orders as $order)
                 <tr>
-                    <td>{{ $customer->c_id }}</td>
-                    <td>{{ $customer->c_p_id }}</td>
-                    <td>{{ $customer->c_p_name }}</td>
-                    <td>{{ $customer->c_p_price }}</td>
-                    <td>{{ $customer->c_p_number }}</td>
-                    <td>{{ $customer->c_p_price*$customer->c_p_number }}</td>
-                    <td>{{ $customer->c_id }}</td>
-                    <td>{{ $customer->c_name }}</td>
+                    <td></td>
+                    <td>{{ $order->order_p_id }}</td>
+                    <td>{{ $order->order_p_name }}</td>
+                    <td>{{ $order->order_p_price }}</td>
+                    <td>{{ $order->order_p_number }}</td>
+                    <td>{{ $order->order_p_price*$order->order_p_number }}</td>
+                    <td>{{ $order->customer }}</td>
+            
                 </tr>
                 @endforeach
             </table>

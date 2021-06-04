@@ -54,25 +54,15 @@ class CartController extends Controller
 
     public function address(Request $request)
     {
-        $customer = new Customer;
-        return view('cart/address', compact('customer'));
+        $orders = Order::all();
+        return view('cart/address', compact('orders'));
     }
 
     public function resister(CustomerRequest $request)
     {
-        $customer = new Customer;
-        $customer->c_name = $request->c_name;
-        $customer->c_name_kana = $request->c_name_kana;
-        $customer->postcode = $request->postcode;
-        $customer->prefecture = $request->prefecture;
-        $customer->city = $request->city;
-        $customer->street = $request->street;
-        $customer->c_phone = $request->c_phone;
-        $customer->c_mail = $request->c_mail;
-        $customer->save();
-
-        $customer->orders()->attach($request->order_id);
-
+        $customer = Customer::create($request->all());
+        $customer->orders()->attach(request()->orders);
+        
         return redirect('cart/checkout');
     }
 }

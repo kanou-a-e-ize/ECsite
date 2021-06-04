@@ -29,7 +29,7 @@
                     <td>{{ $order->order_p_number*$order->order_p_price}}</td>
                     
                     <td>
-                        <form action="/cart/{{ $order->order_id }}" method="post">
+                        <form action="/cart/{{ $order->id }}" method="post">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>

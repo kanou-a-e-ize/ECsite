@@ -46,6 +46,12 @@
                         <input type="text" class="form-control" name="c_mail" value="">
                     </div>
 
+                    @foreach($orders as $order)
+                    <label>
+                        <input type="hidden" name="orders[]" value="{{ $order->id }}">
+                    </label>
+                    @endforeach
+
                     <button type="submit" class="btn btn-default">注文確定</button>
                 </form>
                 <br>

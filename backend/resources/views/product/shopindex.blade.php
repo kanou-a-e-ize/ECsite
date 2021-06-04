@@ -26,7 +26,6 @@
                 
                     <td>
                         <form action="/product/{{ $product->p_id }}" method="post">
-                        @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><span class="glyphicon glyphicon-trash"></span></button>
