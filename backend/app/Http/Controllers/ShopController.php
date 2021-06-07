@@ -21,10 +21,7 @@ class ShopController extends Controller
 
     public function index()
     {
-        // DBよりproductsテーブルの値を全て取得
         $products = Product::all();
-
-        // 取得した値をビュー「shopindex」に渡す
         return view('/product/shopindex', compact('products'));
     }
     
@@ -79,15 +76,11 @@ class ShopController extends Controller
         return redirect("/shopindex");
     }
 
-    public function order(Customer $customer, Order $orders)
-    {
-        
-        //$id = $customer->id;
-        //$customer = Customer::find($id);
-
-        $orders = Order::with('customers')->get();
-
-        return view('product/manageorder', ['orders' => $orders, 'customer' => $customer]);
+    public function order()
+    {  
+        $customers = Customer::all();
+    
+        return view('product/manageorder', compact('customers'));
     }
 }
 

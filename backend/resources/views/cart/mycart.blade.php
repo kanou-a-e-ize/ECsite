@@ -17,7 +17,7 @@
                     <th class="text-center">商品名</th>
                     <th class="text-center">単価（税抜）円</th>
                     <th class="text-center">数量</th>
-                    <th class="text-center">小計（税抜）円</th>
+                    <th class="text-center">合計（税込）円</th>
                     <th class="text-center">削除</th>
                 </tr>
             

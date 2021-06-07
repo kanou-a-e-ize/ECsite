@@ -62,7 +62,8 @@ class CartController extends Controller
     {
         $customer = Customer::create($request->all());
         $customer->orders()->attach(request()->orders);
-        
+
+
         return redirect('cart/checkout');
     }
 }

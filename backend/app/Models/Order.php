@@ -12,7 +12,7 @@ class Order extends Model
     protected $fillable = ['order_p_id', 'order_p_name', 'order_p_price', 'order_p_number'];
 
     public function customers() {
-        return $this->belongsToMany('App\Models\Customer','customer_order', 'order_id', 'customer_id')->withTimestamps();
+        return $this->belongsToMany('App\Models\Customer')->withTimestamps();
 
     }
 }
