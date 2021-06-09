@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @extends('cart/layout')
-    @section('content')
-    <div class="container ops-main">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="ops-title">ようこそ！！- 商品一覧</h3>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Shop</title>
+    <!-- css -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="cartindex-btn">
+                <button type="button" class="btn btn-gray" onclick="location.href='/cart/mycart'">カート確認</button>
+            </div>
+            <div class="cartindex-title">
+                <p>ようこそ</p>
+                <h2>商品一覧</h2>
+            </div>
+            
+            <div class="itemlist">    
+            <ul>
+            @foreach($products as $product)
+                <li>
+                    <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}"></a>
+                    <div class="item-body">
+                        <h4>{{ $product->p_name }}</h4>
+                        <p>{{ $product->p_price }} 円</p>
+                    </div>
+                </li>
+            @endforeach  
+            </ul>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-                <table class="table text-center">
-
-                @foreach($products as $product)
-               <td>
-                    <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150"></a><br>
-                    商品名：{{ $product->p_name }}<br>
-                    単価（税抜）：{{ $product->p_price }} 円<br>
-                </td>   
-                @endforeach
-            </table>
-        <a href="/cart/mycart" class="btn btn-default">カート確認</a>
-        </div>
-    </div>
-    @endsection
+    </main>
+</body>
 </html>

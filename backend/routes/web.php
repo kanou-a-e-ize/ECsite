@@ -37,11 +37,15 @@ Route::get('cart', 'CartController@index');
 
 Route::get('cart/{p_id}/detail', 'CartController@detail');
 
-Route::post('cart/{p_id}/store', 'CartController@store');
+Route::post('cart/{p_id}/detail', 'CartController@detail');
 
 Route::get('cart/mycart', 'CartController@mycart');
 
-Route::delete('cart/{id}', 'CartController@destroy');
+Route::post('cart/mycart', function () {
+    return view('cart/mycart');
+});
+
+Route::post('cart/address', 'CartController@order');
 
 Route::get('cart/address', 'CartController@address');
 

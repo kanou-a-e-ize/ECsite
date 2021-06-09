@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-11 col-md-offset-1">
+        <div class="col-md-12">
             <table class="table text-center">
                 <tr>
                     <th class="text-center">商品ID</th>

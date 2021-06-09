@@ -128,12 +128,10 @@ return [
         'image3' => '商品画像3',
         'c_name' => 'お名前',
         'c_name_kana' => 'フリガナ',
-        'postcode' => '郵便番号',
-        'prefecture' => '都道府県',
-        'city' => '市区町村',
-        'street' => 'それ以降の住所',
         'c_phone' => '電話番号',
         'c_mail' => 'メールアドレス',
+        'postcode' => '郵便番号',
+        'address' => '住所',
     ],
 
 ];
