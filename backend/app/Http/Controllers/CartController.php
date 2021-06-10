@@ -30,26 +30,17 @@ class CartController extends Controller
         return view('cart/mycart', compact('orders'));
     }
 
-    public function order(Request $request)
-    {
-        $order = Order::create($request->all());
-        return view('cart/address', compact('order'));
-    }
-
     public function address(Request $request)
     {
-        $customers = Customer::all();
+        $customer = new Customer();
         
-        return view('cart/address', compact('customers'));
+        return view('cart/address', compact('customer'));
     }
 
     public function resister(CustomerRequest $request)
     {
-        $customer = Customer::create($request->all());
-        //$id = $customer->id;  
-        //$customer = Customer::findOrFail($id);
-        $customer->orders()->attach(request()->orders);
-        return redirect('cart/checkout');
+        //$customer->orders()->attach(request()->orders);
+        return view('cart/checkout');
     }
 
 }

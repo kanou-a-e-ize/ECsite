@@ -36,44 +36,35 @@
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body>
+    <body>
     <main>
-    <div class="container">
-        <div class="title">
-            <h2>商品詳細</h2>
-        </div>
-        <div class="detail">
-            商品名：{{ $product->p_name }}<br>
-            商品説明：{{ $product->p_detail }}<br>
-            単価（税抜）：{{ $product->p_price }} 円<br>
-            <br>        
-            <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150">
-            <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="150" height="150">
-            <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="150" height="150">
-        
-            <form action="detail" method="post" class="item-form">
-            @csrf
-                <input type="hidden" name="order_p_id" value="{{ $product->p_id }}" >
-                <input type="hidden" name="order_p_name" value="{{ $product->p_name }}" >
-                <input type="hidden" name="order_p_price" value="{{ $product->p_price }}" >
-                <br>
-                    <label for="order_p_number">購入個数</label>
-                    <input type="number" value="1" min="1" name="order_p_number" >
-                    <lavel class="order_p_number">個</lavel>
-
-                <button type="submit" class="btn btn-blue">カートに入れる</button>
-            </form>
-
-            @if (session('flash_message'))
-            <div class="flash_message">
-                {{ session('flash_message') }}
+        <div class="container">
+            <div class="title">
+                <h2>商品詳細</h2>
             </div>
-            @endif
-                <br>
-                 <button type="button" class="btn btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
+            <div class="detail">
+                商品名：{{ $product->p_name }}<br>
+                商品説明：{{ $product->p_detail }}<br>
+                単価（税抜）：{{ $product->p_price }} 円<br>       
+                <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="150" height="150">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="150" height="150">
             
+                <form action="detail" method="post" class="item-form">
+                @csrf
+                    <input type="hidden" name="order_p_id" value="{{ $product->p_id }}" >
+                    <input type="hidden" name="order_p_name" value="{{ $product->p_name }}" >
+                    <input type="hidden" name="order_p_price" value="{{ $product->p_price }}" >
+
+                    カート追加個数<input type="number" value="1" min="1" name="order_p_number"> 個
+                    <button type="submit" class="btn-blue">カートに入れる</button>
+                </form>
+
+                <div class="btn">
+                    <button type="button" class="btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
+                </div>
+            </div>
         </div>
-    </div>
     </main>
-</body>
+    </body>
 </html>

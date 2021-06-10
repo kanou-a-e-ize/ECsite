@@ -78,9 +78,12 @@ class ShopController extends Controller
 
     public function order()
     {  
-        $customers = Customer::all();
-    
-        return view('product/manageorder', compact('customers'));
+        $orders = \DB::table('orders')
+        ->select('orders.id','orders.order_p_id','orders.order_p_name','orders.order_p_price','orders.order_p_number','orders.created_at','customers.id as customer_id','customers.c_name')
+        ->join('customers','orders.customer_id','=','customers.id')
+        ->get();
+
+        return view('product/manageorder', compact("orders"));
     }
 }
 

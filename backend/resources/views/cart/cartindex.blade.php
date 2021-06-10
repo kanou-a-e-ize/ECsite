@@ -8,16 +8,19 @@
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+<div class="container">
+<header>
+    <div class="title">
+        <h2>商品一覧</h2>
+    </div>
+    <div class="cart-btn">
+        <button type="button" class="btn-gray" onclick="location.href='/cart/mycart'">カート確認</button>
+    </div>
+</heder>
 <body>
-    <main>
-        <div class="container">
-            <div class="cartindex-btn">
-                <button type="button" class="btn btn-gray" onclick="location.href='/cart/mycart'">カート確認</button>
-            </div>
-            <div class="cartindex-title">
-                <p>ようこそ</p>
-                <h2>商品一覧</h2>
-            </div>
+    <main>      
+        
+            
             
             <div class="itemlist">    
             <ul>
@@ -35,4 +38,5 @@
         </div>
     </main>
 </body>
+</div>
 </html>

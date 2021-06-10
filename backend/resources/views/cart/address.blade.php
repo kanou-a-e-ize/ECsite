@@ -15,7 +15,7 @@
             <h2>住所入力</h2>
         </div>
             @include('Cart/message')
-                <form class="address-form" action="/cart/post" method="post">
+                <form class="address-form" action="/cart/checkout" method="post">
                     @csrf
                     <div class="form-group">
                        <label for="c_name">お名前</lavel>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="c_name_kana">お名前フリガナ（全角カナ）</lavel>
                         <input type="text" class="form-control" name="c_name_kana">
-                    </div>
+                    </div> 
                     <div class="form-group">
                         <label for="c_phone">電話番号（ハイフン不要）</label>
                         <input type="text" class="form-control" name="c_phone">
@@ -41,10 +41,11 @@
                         <label for="address">住所</label>
                         <input type="text" class="form-control" name="address">
                     </div>
-                    <div class="order-btn">
-                        <button type="submit" class="btn btn-blue">注文確定</button>
+                
+                    <div class="btn">
+                        <button type="submit" class="btn-blue">注文確定</button>
                     </div>
-                    </form>
+                </form>
     </div>
 </main>
 </body>

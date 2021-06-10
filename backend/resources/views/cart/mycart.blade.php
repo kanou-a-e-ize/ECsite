@@ -31,63 +31,56 @@
         <div class="container">
             <div class="title">
                 <h2>MY CART</h2>
-                <p>カート</p>
             </div>
             <?php if(empty($stocks)){ ?>
                 <div class="notcart">カートに商品がありません...!</div>
+            
             <?php }else{ ?>
+            
             <div class="cartlist">
-            <form action="/cart/address" method="post">
-            @csrf
+            
                 <table class="cart-table">
-                    <thead>
+                    
                         <tr>
                             <th>商品名</th>
                             <th>価格</th>
                             <th>個数</th>
                             <th>小計</th>
-                            <th>操作</th>
+                            <th>削除</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                    
                         
-                            <?php foreach($stocks as $order_p_id => $stock): ?>
-                            <tr>
-                                <td label="商品名" class="text-right"><?php echo $stock['order_p_name']; ?></td>
-                                <td label="価格：" class="text-right">¥<?php echo $stock['order_p_price']; ?></td>
-                                <td label="個数：" class="text-right"><?php echo $stock['order_p_number']; ?></td>
-                                <td label="小計：" class="text-right">¥<?php echo $stock['order_p_price']*$stock['order_p_number']; ?></td>
-                                <input type="hidden" name="order_p_id" value="<?php echo $order_p_id; ?>">
-                                <input type="hidden" name="order_p_name" value="<?php echo $stock['order_p_name']; ?>">
-                                <input type="hidden" name="order_p_price" value="<?php echo $stock['order_p_price']; ?>">
-                                <input type="hidden" name="order_p_number" value="<?php echo $stock['order_p_number']; ?>">    
-                                    
-                                <td>
+                        <?php foreach($stocks as $order_p_id => $stock): ?>
+                        <tr>
+                            <td><?php echo $stock['order_p_name']; ?></td>
+                            <td label="価格：">¥<?php echo $stock['order_p_price']; ?></td>
+                            <td label="個数："><?php echo $stock['order_p_number']; ?></td>
+                            <td label="小計：">¥<?php echo $stock['order_p_price']*$stock['order_p_number']; ?></td>   
+                            
+                            <td>
                                 <form action="mycart" method="post">
                                 @csrf
                                     <input type="hidden" name="delete_p_id" value="<?php echo $order_p_id; ?>">
-                                <button type="submit" class="btn btn-red">削除</button>
+                                <button type="submit" class="btn-red">削除</button>
                                 </form>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                            <tr class="total">
-                                <th colspan="3">合計</th>
-                                <td colspan="2">¥<?php echo $total; ?></td>
-                            </tr>  
-                    </tbody>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <tr class="total">
+                            <th colspan="3">合計</th>
+                            <td colspan="2">¥<?php echo $total; ?></td>
+                        </tr>  
                 </table>
                 <br>
-                <div class="cart-btn">
-                    <button type="submit" class="btn btn-blue">住所入力</button>
-                </div>
-            </form> 
+                <div class="btn">
+                    <button type="submit" class="btn-blue" onclick="location.href='/cart/address'">住所入力</button>
+                </div> 
                 
             </div>
             <?php } ?>
             
-            <div class="cart-btn">
-                <button type="button" class="btn btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
+            <div class="btn">
+                <button type="button" class="btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
             </div>
             
         </div>

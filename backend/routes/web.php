@@ -45,12 +45,6 @@ Route::post('cart/mycart', function () {
     return view('cart/mycart');
 });
 
-Route::post('cart/address', 'CartController@order');
-
 Route::get('cart/address', 'CartController@address');
 
-Route::post('cart/post', 'CartController@resister');
-
-Route::get('cart/checkout', function () {
-    return view('cart/checkout');
-});
+Route::post('cart/checkout', 'CartController@resister');
