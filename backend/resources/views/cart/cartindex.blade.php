@@ -14,7 +14,7 @@
         <h2>商品一覧</h2>
     </div>
     <div class="cart-btn">
-        <button type="button" class="btn-gray" onclick="location.href='/cart/mycart'">カート確認</button>
+        <button type="button" class="btn-gray" onclick="location.href='/mycart'">カート確認</button>
     </div>
 </heder>
 <body>

@@ -60,6 +60,15 @@
                     <button type="submit" class="btn-blue">カートに入れる</button>
                 </form>
 
+            <!-- フラッシュメッセージ -->
+            @if (Session::has('message'))
+            <p>{{ session('message') }}</p>
+            @endif
+
+            <main class="mt-4">
+            @yield('content')
+        </main>
+
                 <div class="btn">
                     <button type="button" class="btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
                 </div>

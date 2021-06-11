@@ -43,7 +43,7 @@
                     
                         <tr>
                             <th>商品名</th>
-                            <th>価格</th>
+                            <th>単価</th>
                             <th>個数</th>
                             <th>小計</th>
                             <th>削除</th>
@@ -73,7 +73,7 @@
                 </table>
                 <br>
                 <div class="btn">
-                    <button type="submit" class="btn-blue" onclick="location.href='/cart/address'">住所入力</button>
+                    <button type="submit" class="btn-orange" onclick="location.href='/address'">住所入力</button>
                 </div> 
                 
             </div>

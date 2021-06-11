@@ -57,6 +57,9 @@
     <main>
         <div class="container">
             <div class="title">
+                <h2>注文完了</h2>
+            </div>
+            <div class="thanks">
                 <h3>ご注文ありがとうございました!</h3>
             </div>
         </div>

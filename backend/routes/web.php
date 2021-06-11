@@ -18,33 +18,26 @@ use App\Http\Controllers\CartController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('auth/login', function () {
-    return view('auth/login');
-});
-
 Route::get('shopindex', 'ShopController@index');
 
 Route::get('create', 'ShopController@create');
 
-Route::post('post', 'ShopController@store');
-
-Route::get('manageorder', 'ShopController@order');
+Route::post('store', 'ShopController@store');
 
 Route::delete('product/{p_id}', 'ShopController@destroy');
+
+Route::get('manageorder', 'ShopController@order');
 
 Route::get('cart', 'CartController@index');
 
 Route::get('cart/{p_id}/detail', 'CartController@detail');
 
-Route::post('cart/{p_id}/detail', 'CartController@detail');
+Route::post('cart/{p_id}/detail', 'CartController@store');
 
-Route::get('cart/mycart', 'CartController@mycart');
+Route::get('mycart', 'CartController@mycart');
 
-Route::post('cart/mycart', function () {
-    return view('cart/mycart');
-});
+Route::post('mycart', 'CartController@destroy');
 
-Route::get('cart/address', 'CartController@address');
+Route::get('address', 'CartController@address');
 
-Route::post('cart/checkout', 'CartController@resister');
+Route::post('checkout', 'CartController@resister');

@@ -20,7 +20,7 @@
 <body>
 <main>
     @include('Product/message')
-        <form class="create-form" action="/post" method="post" enctype="multipart/form-data">
+        <form class="create-form" action="store" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="p_name">商品名</label>

@@ -20,14 +20,14 @@
                     <tr>
                         <th>商品ID</th>
                         <th>商品名</th>
-                        <th>単価（税抜）円</th>
+                        <th>単価</th>
                         <th>削除</th>
                     </tr>
                     @foreach($products as $product)
                     <tr>
                         <td>{{ $product->p_id }}</td>
                         <td>{{ $product->p_name }}</td>
-                        <td>{{ $product->p_price}}</td>                
+                        <td>¥{{ $product->p_price}}</td>                
                         
                         <td>
                             <form action="/product/{{ $product->p_id }}" method="post">
@@ -40,8 +40,8 @@
                     @endforeach
                 </table>
                 <div class="btn">
-                    <button type="button" class="btn-gray" onclick="location.href='create'">商品登録</button>
-                    <button type="button" class="btn-gray" onclick="location.href='manageorder'">注文一覧</button>
+                    <button type="button" class="btn-orange" onclick="location.href='create'">商品登録</button>
+                    <button type="button" class="btn-orange" onclick="location.href='manageorder'">注文一覧</button>
                 </div>
             </div>
         </div>

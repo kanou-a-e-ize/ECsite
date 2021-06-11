@@ -15,7 +15,7 @@
             <h2>住所入力</h2>
         </div>
             @include('Cart/message')
-                <form class="address-form" action="/cart/checkout" method="post">
+                <form class="address-form" action="/checkout" method="post">
                     @csrf
                     <div class="form-group">
                        <label for="c_name">お名前</lavel>

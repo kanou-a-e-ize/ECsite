@@ -21,8 +21,19 @@ html {
     font-size: 15px;
     padding: 10px 20px;
     border-radius: 10px;
-    border: 1px solid #3e3c3b;
-    color: #3e3e3b;
+    background-color: rgb(110, 109, 109);
+    border: none;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-orange {
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: orange;
+    border: none;
+    color: black;
     margin-top: 10px;
 }
 
@@ -30,7 +41,7 @@ html {
     font-size: 15px;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #264bc5;
+    background-color: rgb(0, 121, 105);
     border: none;
     color: white;
     margin-top: 10px;
@@ -40,8 +51,9 @@ html {
     font-size: 15px;
     padding: 2px 10px;
     border-radius: 5px;
-    border: 1px solid red;
-    color: red;
+    background-color: #ff5e58;
+    border: none;
+    color: white;
 }
 
 /* shopindex */
@@ -58,7 +70,7 @@ html {
 }
 
 .product-table th {
-    background-color: #ebb134;
+    background-color: #dff89c;
     color: black;
 }
 
@@ -105,7 +117,7 @@ html {
 }
 
 .manegeorder-table th {
-    background-color: #a7a7a7;
+    background-color: #dff89c;
     color: black;
 }
 
