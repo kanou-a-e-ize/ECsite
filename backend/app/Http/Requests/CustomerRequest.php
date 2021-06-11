@@ -26,9 +26,9 @@ class CustomerRequest extends FormRequest
         return [
             'c_name' => 'required|max:100',
             'c_name_kana' => 'required|string|regex:/^[ァ-ヾ　〜ー]+$/u|max:100',
-            'c_phone' => 'integer|digits_between:8,11',
+            'c_phone' => 'required|digits_between:8,11',
             'c_mail' => 'required|email|max:100',
-            'postcode' => 'required|integer|digits:7',
+            'postcode' => 'required|digits:7',
             'address' => 'required|max:100',
         ];
     }
