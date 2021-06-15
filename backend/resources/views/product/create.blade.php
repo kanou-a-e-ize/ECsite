@@ -31,7 +31,7 @@
                 <input type="text" class="form-control" name="p_detail" value="{{ $product->p_detail }}">
             </div>
             <div class="form-group">
-                <label for="p_price">単価（税抜）円</label>
+                <label for="p_price">単価[円]</label>
                 <input type="text" class="form-control" name="p_price" value="{{ $product->p_price }}">
             </div>
             <div class="form-image_url">
