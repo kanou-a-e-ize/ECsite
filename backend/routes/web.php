@@ -24,6 +24,8 @@ Route::get('create', 'ShopController@create');
 
 Route::post('store', 'ShopController@store');
 
+Route::get('shop/{p_id}/detail', 'ShopController@detail');
+
 Route::delete('product/{p_id}', 'ShopController@destroy');
 
 Route::get('manageorder', 'ShopController@order');

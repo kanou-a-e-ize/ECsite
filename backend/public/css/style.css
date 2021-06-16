@@ -83,6 +83,32 @@ html {
     text-align: center;
 }
 
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.detail-table th,
+.detail-table td {
+    border: 1px solid #a0a1a1a1;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+.detail-table th {
+    background-color: #ebecedad;
+    color: black;
+}
+
+.detail-table td {
+    text-align: center;
+    font-size: larger;
+}
+
+.flashmsg {
+    color: red;
+}
 
 /* mycart */
 .cart-table {

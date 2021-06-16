@@ -43,12 +43,22 @@
                 <h2>商品詳細</h2>
             </div>
             <div class="detail">
-                商品名：{{ $product->p_name }}<br>
-                商品説明：{{ $product->p_detail }}<br>
-                単価（税抜）：{{ $product->p_price }} 円<br>       
-                <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="150" height="150">
-                <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="150" height="150">
-                <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="150" height="150">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="180" height="180">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="180" height="180">
+                <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="180" height="180">
+                <br>
+                <table class="detail-table">
+                    <tr>
+                        <th>商品名</th>
+                        <th>商品説明</th>
+                        <th>単価</th>
+                    </tr>
+                    <tr>
+                        <td>{{ $product->p_name }}</td>
+                        <td>{{ $product->p_detail }}</td>
+                        <td>¥{{ $product->p_price }}</td>
+                    </tr>
+                </table>
             
                 <form action="detail" method="post" class="item-form">
                 @csrf
@@ -62,12 +72,12 @@
 
             <!-- フラッシュメッセージ -->
             @if (Session::has('message'))
-            <p>{{ session('message') }}</p>
+                <div class="flashmsg">{{ session('message') }}</div>
             @endif
 
             <main class="mt-4">
             @yield('content')
-        </main>
+            </main>
 
                 <div class="btn">
                     <button type="button" class="btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>

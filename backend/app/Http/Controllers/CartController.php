@@ -52,11 +52,9 @@ class CartController extends Controller
         return view('cart/address', compact('customer'));
     }
 
-    public function confirm(Request $request)
-    {
-        $customer = new Customer();
-        
-        return view('cart/confirm', compact('customer'));
+    public function confirm()
+    {    
+        return view('cart/confirm');
     }
 
     public function resister(CustomerRequest $request)

@@ -60,6 +60,13 @@ class ShopController extends Controller
         $product->save();
         return redirect("/shopindex");
     }
+
+    public function detail($p_id)
+    {
+        $product = Product::findOrFail($p_id);
+
+        return view('shop/detail', compact('product'));
+    } 
     
     public function destroy($p_id)
     {

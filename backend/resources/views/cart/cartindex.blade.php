@@ -19,9 +19,6 @@
 </heder>
 <body>
     <main>      
-        
-            
-            
             <div class="itemlist">    
             <ul>
             @foreach($products as $product)
