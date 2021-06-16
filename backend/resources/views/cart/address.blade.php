@@ -15,7 +15,7 @@
             <h2>住所入力</h2>
         </div>
             @include('Cart/message')
-                <form class="address-form" action="/checkout" method="post">
+                <form class="address-form" action="/confirm" method="post">
                     @csrf
                     <div class="form-group">
                        <label for="c_name">お名前</lavel>
@@ -43,7 +43,8 @@
                     </div>
                 
                     <div class="btn">
-                        <button type="submit" class="btn-blue">注文確定</button>
+                        <button type="submit" class="btn-blue">入力情報確認へ</button>
+                        <button type="button" class="btn-gray" onclick="location.href='/mycart'">カート確認へ戻る</button>
                     </div>
                 </form>
     </div>

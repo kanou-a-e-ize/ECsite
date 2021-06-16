@@ -129,6 +129,49 @@ html {
     height: 30px;
 }
 
+/* confirm */
+caption {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.confirm-table th,
+.confirm-table td {
+    border: 1px solid #ebeced;
+    vertical-align: middle;
+    padding: 5px 10px;
+}
+
+.confirm-table th {
+    background-color: #c0c1c2;
+    color: black;
+}
+
+.confirm-table td {
+    text-align: center;
+}
+
+.confirm-total td{ 
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-title{
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
 /* checkout */
 .thanks{
     background-color: #ebeced;

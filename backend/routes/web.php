@@ -40,4 +40,6 @@ Route::post('mycart', 'CartController@destroy');
 
 Route::get('address', 'CartController@address');
 
+Route::post('confirm', 'CartController@confirm');
+
 Route::post('checkout', 'CartController@resister');
