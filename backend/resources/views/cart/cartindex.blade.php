@@ -29,7 +29,7 @@
                     <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}"></a>
                     <div class="item-body">
                         <h4>{{ $product->p_name }}</h4>
-                        <p>{{ $product->p_price }} 円</p>
+                        <p>¥{{ $product->p_price }}</p>
                     </div>
                 </li>
             @endforeach  
