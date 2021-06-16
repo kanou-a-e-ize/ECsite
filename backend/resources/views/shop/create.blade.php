@@ -19,7 +19,7 @@
 </header> 
 <body>
 <main>
-    @include('Product/message')
+    @include('shop/message')
         <form class="create-form" action="store" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

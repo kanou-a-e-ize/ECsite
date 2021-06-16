@@ -22,13 +22,13 @@ class ShopController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('/product/shopindex', compact('products'));
+        return view('/shop/shopindex', compact('products'));
     }
     
     public function create()
     {
         $product = new Product();
-        return view('/product/create', compact('product'));
+        return view('/shop/create', compact('product'));
     }
     
     public function store(ProductRequest $request)
@@ -83,7 +83,7 @@ class ShopController extends Controller
         ->join('customers','orders.customer_id','=','customers.id')
         ->get();
 
-        return view('product/manageorder', compact("orders"));
+        return view('shop/manageorder', compact("orders"));
     }
 }
 
