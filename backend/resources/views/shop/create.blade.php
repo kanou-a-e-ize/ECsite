@@ -14,7 +14,7 @@
         <h2>商品登録</h2>
     </div>
     <div class="shopindex-btn">
-        <button type="button" class="btn-gray" onclick="location.href='shopindex'">商品一覧に戻る</button>
+        <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
     </div>
 </header> 
 <body>

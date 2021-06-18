@@ -33,7 +33,7 @@
                     </tr>
                 </table>
                 <div class="btn">
-                    <button type="button" class="btn-gray" onclick="location.href='/shopindex'">商品一覧に戻る</button>
+                    <button type="button" class="btn-gray" onclick="location.href='/index'">商品一覧に戻る</button>
                 </div>
         
             </div>
