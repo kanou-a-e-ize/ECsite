@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // ProductTableSeederを読み込むように指定
         $this->call(ProductTableSeeder::class);
+
+        $this->call(UserSeeder::class);
+        $this->call(MemberSeeder::class);
     }
 }
