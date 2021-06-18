@@ -22,7 +22,7 @@ class ShopController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('/shop/shopindex', compact('products'));
+        return view('/shop/index', compact('products'));
     }
     
     public function create()
@@ -58,7 +58,7 @@ class ShopController extends Controller
         }
 
         $product->save();
-        return redirect("/shopindex");
+        return redirect("/index");
     }
 
     public function detail($p_id)
@@ -80,7 +80,7 @@ class ShopController extends Controller
 
         $product->delete();
     
-        return redirect("/shopindex");
+        return redirect("/index");
     }
 
     public function order()

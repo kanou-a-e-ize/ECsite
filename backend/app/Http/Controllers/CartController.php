@@ -12,10 +12,11 @@ use Session;
 
 class CartController extends Controller
 {
+    
     public function index()
     {
         $products = Product::all();
-        return view('cart/cartindex', compact('products'));
+        return view('cart/index', compact('products'));
     }
 
     public function detail($p_id)
