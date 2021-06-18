@@ -5,14 +5,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('shopindex') }}">
+                    <a href="{{ route('index') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('shopindex') }}" :active="request()->routeIs('shopindex')">
+                    <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                         {{ __('商品一覧') }}
                     </x-jet-nav-link>
                 </div>
@@ -138,7 +138,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('shopindex') }}" :active="request()->routeIs('shopindex')">
+            <x-jet-responsive-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                 {{ __('商品一覧') }}
             </x-jet-responsive-nav-link>
         </div>
