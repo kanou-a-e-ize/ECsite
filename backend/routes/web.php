@@ -57,7 +57,7 @@ Route::get('cart/{p_id}/detail', 'CartController@detail');
 
 Route::post('cart/{p_id}/detail', 'CartController@add');
 
-Route::get('cart/mycart', 'CartController@mycart');
+Route::get('mycart', 'CartController@mycart');
 
 Route::post('mycart', 'CartController@destroy');
 

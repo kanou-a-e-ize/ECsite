@@ -16,9 +16,14 @@ class MemberSeeder extends Seeder
     public function run()
     {
         Member::create([
-            'name' => '会員',
+            'name' => '山田花子',
             'email' => 'member@member.member',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'name_kana' => 'ヤマダハナコ',
+            'phone' => '09011223344',
+            'postcode' => '01234567',
+            'address' => '東京都千代田区神田町1-2',
+            
         ]);
     }
 }
