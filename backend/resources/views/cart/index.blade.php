@@ -13,10 +13,18 @@
     <div class="title">
         <h2>商品一覧</h2>
     </div>
+
+
     <div class="cart-btn">
-        <button type="button" class="btn-gray" onclick="location.href='/mycart'">カート確認</button>
+        <button type="button" class="btn-blue" onclick="location.href='/mycart'">カート確認</button>
+        
+        <!-- Log Out -->
+        <form action="member/logout" method="post">
+            @csrf
+            <button type="submit" class="btn-gray">Log out</button>    
+        </form>                   
     </div>
-</heder>
+</header>
 <body>
     <main>      
             <div class="itemlist">    

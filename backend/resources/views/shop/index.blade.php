@@ -13,7 +13,7 @@
         <div class="container">
             <div class="title">
                 <h2>商品一覧</h2>
-            </div>
+            </div> 
 
             <div class="productlist">
                 <table class="product-table">
@@ -45,6 +45,12 @@
                 <div class="btn">
                     <button type="button" class="btn-orange" onclick="location.href='create'">商品登録</button>
                     <button type="button" class="btn-orange" onclick="location.href='manageorder'">注文一覧</button>
+                </div>
+                <div class="btn">
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="btn-gray">Log out</button>    
+                    </form>
                 </div>
             </div>
         </div>

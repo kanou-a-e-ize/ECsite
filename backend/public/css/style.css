@@ -24,7 +24,7 @@ html {
     background-color: rgb(110, 109, 109);
     border: none;
     color: white;
-    margin-top: 10px;
+    margin: 10px 10px;
 }
 
 .btn-orange {
@@ -56,9 +56,9 @@ html {
     color: white;
 }
 
-/* cartindex */
+/* index */
 .cart-btn {
-    text-align: right;
+    display: flex;
 }
 
 .itemlist ul li {
