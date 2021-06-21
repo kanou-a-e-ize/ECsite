@@ -9,10 +9,60 @@ use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Order;
 use Session;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Auth\StatefulGuard;
+
+use Illuminate\Routing\Pipeline;
+use App\Actions\Member\AttemptToAuthenticate;
+use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
+//use App\Responses\MemberLoginResponse;
+//use Laravel\Fortify\Contracts\LogoutResponse;
+use Laravel\Fortify\Http\Requests\LoginRequest;
 
 class CartController extends Controller
 {
-    
+
+    protected $guard;
+
+    public function __construct(StatefulGuard $guard)
+    {
+        $this->guard = $guard;
+    }
+
+    public function create()
+    {
+        return view('auth.memberLogin', ['guard' => 'member']);
+    }
+
+    public function store(LoginRequest $request)
+    {
+        return $this->loginPipeline($request)->then(function ($request) {
+            return redirect('cart');
+        });
+    }
+
+    protected function loginPipeline(LoginRequest $request)
+    {
+        return (new Pipeline(app()))->send($request)->through(array_filter([
+            AttemptToAuthenticate::class,
+            PrepareAuthenticatedSession::class,
+        ]));
+    }
+
+
+
+    public function memberdestroy(Request $request)
+    {
+        $this->guard->logout();
+
+        //$request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('member/login');
+    }
+
+
     public function index()
     {
         $products = Product::all();
@@ -26,7 +76,7 @@ class CartController extends Controller
         return view('cart/detail', compact('product'));
     } 
     
-    public function store($p_id)
+    public function add($p_id)
     {
         $product = Product::findOrFail($p_id);
 

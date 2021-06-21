@@ -13,7 +13,6 @@ use App\Http\Controllers\Auth;
 
 class ShopController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -68,7 +67,7 @@ class ShopController extends Controller
         return view('shop/detail', compact('product'));
     } 
     
-    public function destroy($p_id)
+    public function delete($p_id)
     {
         $product = Product::findOrFail($p_id);
         $deletimage1 = $product->image1;
@@ -91,6 +90,17 @@ class ShopController extends Controller
         ->get();
 
         return view('shop/manageorder', compact("orders"));
+    }
+
+    public function destroy(Request $request)
+    {
+        $this->guard->logout();
+
+        //$request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('login');
     }
 }
 

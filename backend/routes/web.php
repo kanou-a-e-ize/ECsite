@@ -21,7 +21,7 @@ Route::get('welcome', function () {
 });
 
 /* 店舗側 */
-Route::post('logout', [LoginController::class, 'destroy'])
+Route::post('logout', 'ShopController@destroy')
     ->middleware('auth:user')
     ->name('logout');
 
@@ -33,7 +33,7 @@ Route::post('store', 'ShopController@store');
 
 Route::get('shop/{p_id}/detail', 'ShopController@detail');
 
-Route::delete('product/{p_id}', 'ShopController@destroy');
+Route::delete('product/{p_id}', 'ShopController@delete');
 
 Route::get('manageorder', 'ShopController@order');
 
@@ -43,11 +43,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('member/login', [LoginController::class, 'create'])->name('member.login');
+Route::get('member/login', 'CartController@create')->name('member.login');
 
-Route::post('member/login', [LoginController::class, 'store'])->middleware('guest');
+Route::post('member/login', 'CartController@store')->middleware('guest');
 
-Route::post('member/logout', [LoginController::class, 'memberdestroy'])
+Route::post('member/logout', 'CartController@memberdestroy')
     ->middleware('auth:member')
     ->name('logout');
 
@@ -55,9 +55,9 @@ Route::get('cart', 'CartController@index');
 
 Route::get('cart/{p_id}/detail', 'CartController@detail');
 
-Route::post('cart/{p_id}/detail', 'CartController@store');
+Route::post('cart/{p_id}/detail', 'CartController@add');
 
-Route::get('mycart', 'CartController@mycart');
+Route::get('cart/mycart', 'CartController@mycart');
 
 Route::post('mycart', 'CartController@destroy');
 
