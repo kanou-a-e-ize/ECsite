@@ -15,8 +15,10 @@ class MemberSeeder extends Seeder
      */
     public function run()
     {
+        Member::truncate();
+
         Member::create([
-            'name' => '山田花子',
+            'name' => '会員メンバー',
             'email' => 'member@member.member',
             'password' => Hash::make('password'),
             'name_kana' => 'ヤマダハナコ',

@@ -43,6 +43,14 @@ class ProductTableSeeder extends Seeder
                   'image2' => 'strawberry2.png',
                   'image3' => 'strawberry3.png'
                   ],
+                  [
+                  'p_name' => 'みかん',
+                  'p_detail' => '愛媛県産のみかんです。',
+                  'p_price' => 400,
+                  'image1' => 'orange1.png',
+                  'image2' => 'orange2.png',
+                  'image3' => 'orange3.png'
+                  ],
                 ];
 
     // 登録
