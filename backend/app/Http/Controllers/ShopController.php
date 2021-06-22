@@ -9,13 +9,52 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Order;
+use Session;
 use App\Http\Controllers\Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Routing\Pipeline;
+use App\Actions\User\AttemptToAuthenticate;
+use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
+use Laravel\Fortify\Http\Requests\LoginRequest;
+
 
 class ShopController extends Controller
 {
-    public function __construct()
+    public function __construct(StatefulGuard $guard)
     {
-        $this->middleware('auth');
+        $this->guard = $guard;
+    }
+
+    public function create()
+    {
+        return view('auth.login', ['guard' => 'user']);
+    }
+
+    public function store(LoginRequest $request)
+    {
+        return $this->loginPipeline($request)->then(function ($request) {
+            return redirect('index');
+        });
+    }
+
+    protected function loginPipeline(LoginRequest $request)
+    {
+        return (new Pipeline(app()))->send($request)->through(array_filter([
+            AttemptToAuthenticate::class,
+            PrepareAuthenticatedSession::class,
+        ]));
+    }
+
+    public function destroy(Request $request)
+    {
+        $this->guard->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('login');
     }
 
     public function index()
@@ -24,13 +63,13 @@ class ShopController extends Controller
         return view('/shop/index', compact('products'));
     }
     
-    public function create()
+    public function createproduct()
     {
         $product = new Product();
         return view('/shop/create', compact('product'));
     }
     
-    public function store(ProductRequest $request)
+    public function storeproduct(ProductRequest $request)
     {    
         // DB更新処理
         $product = new Product();

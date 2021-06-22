@@ -21,49 +21,55 @@ Route::get('welcome', function () {
 });
 
 /* 店舗側 */
+Route::get('login', 'ShopController@create')->name('login');
+
+Route::post('login', 'ShopController@store')->middleware('guest');
+
 Route::post('logout', 'ShopController@destroy')
     ->middleware('auth:user')
     ->name('logout');
 
-Route::get('index', 'ShopController@index')->name('index');
+Route::middleware('auth:user')->group(function () {
+    Route::get('index', 'ShopController@index')->name('index');
 
-Route::get('create', 'ShopController@create');
+    Route::get('create', 'ShopController@createproduct');
 
-Route::post('store', 'ShopController@store');
+    Route::post('store', 'ShopController@storeproduct');
 
-Route::get('shop/{p_id}/detail', 'ShopController@detail');
+    Route::get('shop/{p_id}/detail', 'ShopController@detail');
 
-Route::delete('product/{p_id}', 'ShopController@delete');
+    Route::delete('product/{p_id}', 'ShopController@delete');
 
-Route::get('manageorder', 'ShopController@order');
-
-/* カート側 */
-
+    Route::get('manageorder', 'ShopController@order');
+});
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+/* カート側 */
 
 Route::get('member/login', 'CartController@create')->name('member.login');
 
 Route::post('member/login', 'CartController@store')->middleware('guest');
 
-Route::post('member/logout', 'CartController@memberdestroy')
+Route::post('member/logout', 'CartController@destroy')
     ->middleware('auth:member')
     ->name('logout');
 
-Route::get('cart', 'CartController@index');
+Route::middleware('auth:member')->group(function () {
+    Route::get('cart/index', 'CartController@index');
 
-Route::get('cart/{p_id}/detail', 'CartController@detail');
+    Route::get('cart/{p_id}/detail', 'CartController@detail');
 
-Route::post('cart/{p_id}/detail', 'CartController@add');
+    Route::post('cart/{p_id}/detail', 'CartController@add');
 
-Route::get('mycart', 'CartController@mycart');
+    Route::get('cart/mycart', 'CartController@mycart');
 
-Route::post('mycart', 'CartController@destroy');
+    Route::post('cart/mycart', 'CartController@delete');
 
-Route::get('address', 'CartController@address');
+    Route::get('cart/address', 'CartController@address');
 
-Route::post('confirm', 'CartController@confirm');
+    Route::post('cart/confirm', 'CartController@confirm');
 
-Route::post('checkout', 'CartController@resister');
-
+    Route::post('cart/checkout', 'CartController@resister');
+});
