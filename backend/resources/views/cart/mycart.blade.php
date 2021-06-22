@@ -18,23 +18,33 @@
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Shop</title>
-    <!-- css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
-    <main>
-        <div class="container">
-            <div class="title">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome Shop</title>
+        <!-- css -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    </head>
+    <body>
+        <header>
+        
                 <h2>MY CART</h2>
-            </div>
+            
+                <ul class="menu">
+                    <li>ログイン中：{{ Auth::user()->name }} さん</li>
+                    <li>
+                        <form action="/member/logout" method="post">
+                            @csrf
+                            <button type="submit">Log out</button>    
+                        </form>
+                    </li>
+                </ul>
+        </header>
+        <main>
+        <div class="container">    
             <?php if(empty($stocks)){ ?>
                 <div class="notcart">カートに商品がありません...!</div>
-            
             <?php }else{ ?>
             
             <div class="cartlist">
@@ -73,17 +83,17 @@
                 </table>
                 <br>
                 <div class="btn">
-                    <button type="submit" class="btn-orange" onclick="location.href='/address'">住所入力</button>
+                    <button type="submit" class="btn-orange" onclick="location.href='/cart/address'">住所入力</button>
                 </div> 
                 
             </div>
             <?php } ?>
             
             <div class="btn">
-                <button type="button" class="btn-gray" onclick="location.href='/cart'">商品一覧に戻る</button>
+                <button type="button" class="btn-gray" onclick="location.href='/cart/index'">商品一覧に戻る</button>
             </div>
             
         </div>
-    </main>
-</body>
+        </main>
+    </body>
 </html>

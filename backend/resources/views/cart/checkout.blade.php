@@ -56,11 +56,12 @@
     <body>
     <main>
         <div class="container">
-            <div class="title">
-                <h2>注文完了</h2>
-            </div>
             <div class="thanks">
+                <h2>注文完了</h2>
                 <h3>ご注文ありがとうございました!</h3>
+                <div class="btn">
+                    <button type="button" class="btn-gray" onclick="location.href='/cart/index'">TOPページに戻る</button>
+                </div>
             </div>
         </div>
     </main>

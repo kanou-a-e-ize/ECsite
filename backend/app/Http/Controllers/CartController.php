@@ -37,7 +37,7 @@ class CartController extends Controller
     public function store(LoginRequest $request)
     {
         return $this->loginPipeline($request)->then(function ($request) {
-            return redirect('cart');
+            return redirect('cart/index');
         });
     }
 
@@ -50,12 +50,12 @@ class CartController extends Controller
     }
 
 
-
-    public function memberdestroy(Request $request)
+    
+    public function destroy(Request $request)
     {
         $this->guard->logout();
 
-        //$request->session()->invalidate();
+        $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
@@ -63,6 +63,7 @@ class CartController extends Controller
     }
 
 
+    
     public function index()
     {
         $products = Product::all();
@@ -90,7 +91,7 @@ class CartController extends Controller
         return view('cart/mycart', compact('orders'));
     }
 
-    public function destroy()
+    public function delete()
     {
         return view('cart/mycart');
     }

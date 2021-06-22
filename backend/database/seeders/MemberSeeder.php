@@ -21,7 +21,7 @@ class MemberSeeder extends Seeder
             'name' => '会員メンバー',
             'email' => 'member@member.member',
             'password' => Hash::make('password'),
-            'name_kana' => 'ヤマダハナコ',
+            'name_kana' => 'カイインメンバー',
             'phone' => '09011223344',
             'postcode' => '01234567',
             'address' => '東京都千代田区神田町1-2',

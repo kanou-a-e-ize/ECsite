@@ -8,25 +8,27 @@
     <!-- css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<div class="container">
-<header>
-    <div class="title">
-        <h2>商品一覧</h2>
-    </div>
-
-
-    <div class="cart-btn">
-        <button type="button" class="btn-blue" onclick="location.href='/mycart'">カート確認</button>
-        
-        <!-- Log Out -->
-        <form action="member/logout" method="post">
-            @csrf
-            <button type="submit" class="btn-gray">Log out</button>    
-        </form>                   
-    </div>
-</header>
 <body>
-    <main>      
+    <header>
+    
+            <h2>商品一覧</h2>
+           
+            <ul class="menu">
+                <li>ログイン中：{{ Auth::user()->name }} さん</li>
+                <li>
+                    <form action="/member/logout" method="post">
+                        @csrf
+                        <button type="submit">Log out</button>    
+                    </form>
+                </li>
+            </ul>
+    </header>
+    <main> 
+        <div class="container">
+            <div class="cart-btn">
+                <button type="button" class="btn-blue" onclick="location.href='mycart'">カート確認</button>               
+            </div>
+
             <div class="itemlist">    
             <ul>
             @foreach($products as $product)
@@ -43,5 +45,4 @@
         </div>
     </main>
 </body>
-</div>
 </html>
