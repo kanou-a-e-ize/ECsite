@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Page</title>
-    <!-- css -->
-    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shop Page</title>
+        <!-- css -->
+        <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+    </head>
+    <body>
+    <header>
+            <h2>商品詳細</h2>
+           
+            <ul class="menu">
+                <li>ログイン中：{{ Auth::user()->name }} さん</li>
+                <li>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit">Log out</button>    
+                    </form>
+                </li>
+            </ul>
+    </header>
     <main>
         <div class="container">
-            <div class="title">
-                <h2>商品詳細</h2>
-            </div>
 
             <div class="product-detail">
                 <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="180" height="180">

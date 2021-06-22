@@ -91,16 +91,5 @@ class ShopController extends Controller
 
         return view('shop/manageorder', compact("orders"));
     }
-
-    public function destroy(Request $request)
-    {
-        $this->guard->logout();
-
-        //$request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('login');
-    }
 }
 

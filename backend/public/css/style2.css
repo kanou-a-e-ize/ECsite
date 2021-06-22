@@ -3,14 +3,38 @@ html {
     position: relative;
 }
 
+body {
+    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background: #ccc;
+    padding: 20px 150px;
+    box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+    position: fixed; /* ウィンドウを基準に画面に固定 */
+    top: 0;
+    left: 0;
+    display: flex; /* 中の要素を横並びにする */
+    align-items: center; /* 中の要素を上下中央に並べる */
+}
+
+header .menu {
+    display: flex; /* 中の要素を横並びにする */
+    width: 40%;
+    margin-left: auto;
+}
+
+header .menu li {
+    list-style: none; /* リストの[・]を消す */
+    margin-right: 15px;
+}
+
 .container {
    max-width: 1000px;
    margin: 0 auto;
    padding: 0 15px; 
-}
-
-.title {
-    text-align: center;
 }
 
 .btn {
@@ -106,7 +130,7 @@ html {
 }
 
 .detail-table th {
-    background-color: #ebecedad;
+    background-color: #ebeced;
     color: black;
 }
 
@@ -116,11 +140,6 @@ html {
 }
 
 /* create */
-.shopindex-btn {
-    text-align: right;
-    margin: 0 0 5px 0;
-}
-
 .create-form {
     background-color: #ebeced;
     padding: 10px 30px;
