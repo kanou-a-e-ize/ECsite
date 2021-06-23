@@ -24,7 +24,7 @@
             </tr>
         </table>
         <div class="btn">
-            <button type="button" class="btn-gray" onclick="location.href='/manageorder'">注文情報一覧に戻る</button>
+            <button type="button" class="btn-gray" onclick="location.href='/manageorder'">注文一覧に戻る</button>
         </div>
     </div>
     
