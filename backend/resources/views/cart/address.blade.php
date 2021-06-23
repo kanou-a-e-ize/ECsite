@@ -32,7 +32,7 @@
             </div>
 
             <div class="btn">
-                <button type="submit" class="btn-blue">入力情報確認へ</button>
+                <button type="submit" class="btn-green">入力情報確認へ</button>
             </div>
         </form>
     </div>

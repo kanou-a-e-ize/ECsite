@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="cart-btn">
-            <button type="button" class="btn-blue" onclick="location.href='mycart'">カート確認</button>               
+            <button type="button" class="btn-green" onclick="location.href='mycart'">カート確認</button>               
         </div>
         <div class="itemlist">    
             <ul>

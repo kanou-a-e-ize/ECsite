@@ -10,8 +10,9 @@ body {
 header {
     width: 100%;
     height: 50px;
-    background: #ccc;
-    padding: 20px 150px;
+    background: #00704e;
+    color: white;
+    padding: 10px 150px;
     box-sizing: border-box; /* padding分を含んで幅を100%にするため */
     position: fixed; /* ウィンドウを基準に画面に固定 */
     top: 0;
@@ -27,7 +28,7 @@ header .menu {
 }
 
 header .menu li {
-    list-style: none; /* リストの[・]を消す */
+    list-style: none;
     margin-right: 15px;
 }
 
@@ -57,6 +58,7 @@ header .menu li {
     border-radius: 10px;
     background-color: orange;
     border: none;
+    font-weight: bolder;
     color: black;
     margin-top: 10px;
 }
@@ -65,7 +67,7 @@ header .menu li {
     font-size: 15px;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: rgb(0, 121, 105);
+    background-color: #005779;
     border: none;
     color: white;
     margin-top: 10px;
@@ -97,13 +99,13 @@ header .menu li {
 
 .product-table th,
 .product-table td {
-    border: 1px solid #ebeced;
+    border: 1px solid #b2cc6a;
     vertical-align: middle;
     padding: 5px 10px;
 }
 
 .product-table th {
-    background-color: #dff89c;
+    background-color: #dbfd7f;
     color: black;
 }
 
@@ -141,7 +143,7 @@ header .menu li {
 
 /* create */
 .create-form {
-    background-color: #ebeced;
+    background-color: #effcc1;
     padding: 10px 30px;
 }
 

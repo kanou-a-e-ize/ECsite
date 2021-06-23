@@ -31,7 +31,7 @@
                 <input type="file" name="image3" value="{{ $product->image3 }}" >
             </div>
             <div class="btn">
-                <button type="submit" class="btn-blue">保存</button>
+                <button type="submit" class="btn-orange">保存</button>
             </div> 
         </form>
     </div>

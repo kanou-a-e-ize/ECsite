@@ -30,8 +30,8 @@
             @endforeach
         </table>
         <div class="btn">
-            <button type="button" class="btn-orange" onclick="location.href='create'">商品登録</button>
-            <button type="button" class="btn-orange" onclick="location.href='manageorder'">注文一覧</button>
+            <button type="button" class="btn-blue" onclick="location.href='create'">商品登録</button>
+            <button type="button" class="btn-blue" onclick="location.href='manageorder'">注文一覧</button>
         </div>
     </div>
 

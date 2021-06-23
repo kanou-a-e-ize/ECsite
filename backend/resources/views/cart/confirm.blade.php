@@ -78,7 +78,7 @@
         </form>
     </div>
         <div class="btn">
-            <button type="submit" class="btn-blue">注文確定</button>
+            <button type="submit" class="btn-order">注文確定</button>
         </div>
         <div class="btn">
             <button type="button" class="btn-gray" onclick="location.href='/cart/address'">修正する</button>

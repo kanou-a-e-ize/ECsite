@@ -54,7 +54,7 @@
                 <input type="hidden" name="order_p_name" value="{{ $product->p_name }}" >
                 <input type="hidden" name="order_p_price" value="{{ $product->p_price }}" >
                 カート追加個数<input type="number" value="1" min="1" name="order_p_number"> 個
-                    <button type="submit" class="btn-blue">カートに入れる</button>
+                    <button type="submit" class="btn-orange">カートに入れる</button>
             </form>
 
         <!-- フラッシュメッセージ -->
