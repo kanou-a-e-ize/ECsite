@@ -169,13 +169,13 @@ header .menu li {
 
 .manegeorder-table th,
 .manegeorder-table td {
-    border: 1px solid #ebeced;
+    border: 1px solid #b2cc6a;
     vertical-align: middle;
     padding: 5px 10px;
 }
 
 .manegeorder-table th {
-    background-color: #dff89c;
+    background-color: #dbfd7f;
     color: black;
 }
 
