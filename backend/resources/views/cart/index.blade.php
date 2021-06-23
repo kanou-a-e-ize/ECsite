@@ -9,13 +9,17 @@
         <div class="itemlist">    
             <ul>
             @foreach($products as $product)
+            <a href="/cart/{{ $product->p_id }}/detail">    
                 <li>
-                    <a href="/cart/{{ $product->p_id }}/detail"><img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}"></a>
+                    
+                    <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}">
                     <div class="item-body">
-                        <h4>{{ $product->p_name }}</h4>
+                        <p class='product-name'>{{ $product->p_name }}</p>
                         <p>¥{{ $product->p_price }}</p>
                     </div>
+                   
                 </li>
+                </a>
             @endforeach  
             </ul>
         </div>

@@ -56,7 +56,7 @@
                 </tr>  
             </table>
             <div class="btn">
-                <button type="submit" class="btn-orange" onclick="location.href='/cart/address'">住所入力</button>
+                <button type="submit" class="btn-blue" onclick="location.href='/cart/address'">住所入力</button>
             </div>     
         </div>
         <?php } ?>

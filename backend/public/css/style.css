@@ -4,14 +4,14 @@ html {
 }
 
 body {
-    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
+    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにする */
 }
 
 header {
     width: 100%;
     height: 50px;
-    background: #ccc;
-    padding: 20px 150px;
+    background: #fdd095;
+    padding: 10px 150px;
     box-sizing: border-box; /* padding分を含んで幅を100%にするため */
     position: fixed; /* ウィンドウを基準に画面に固定 */
     top: 0;
@@ -88,18 +88,26 @@ header .menu li {
 .itemlist ul li {
     display: block;
     float: left;
-    width: 25%;
-    margin: 10px 0;
+    width: 22%;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
 }
 
 .itemlist img {
     text-align: center;
+    margin: 0 9px;
     width: 200px;
     height: 200px;
 }
 
 .item-body{
-    text-align: left;
+    text-align: center;
+    color: black;
+}
+
+.product-name {
+    font-weight: bolder;
 }
 
 /* cartdetail */
@@ -115,13 +123,13 @@ header .menu li {
 
 .detail-table th,
 .detail-table td {
-    border: 1px solid #a0a1a1a1;
+    border: 1px solid #d4c8a7;
     vertical-align: middle;
     padding: 5px 10px;
 }
 
 .detail-table th {
-    background-color: #ebecedad;
+    background-color: #faecc7;
     color: black;
 }
 
@@ -142,13 +150,13 @@ header .menu li {
 
 .cart-table th,
 .cart-table td {
-    border: 1px solid #ebeced;
+    border: 1px solid #d4c8a7;
     vertical-align: middle;
     padding: 5px 10px;
 }
 
 .cart-table th {
-    background-color: #c0c1c2;
+    background-color: #faecc7;
     color: black;
 }
 
@@ -166,7 +174,7 @@ header .menu li {
 
 /* address */
 .address-form {
-    background-color: #ebeced;
+    background-color: #faecc7;
     padding: 10px 30px;
 }
 
@@ -192,13 +200,13 @@ caption {
 
 .confirm-table th,
 .confirm-table td {
-    border: 1px solid #ebeced;
+    border: 1px solid #d4c8a7;
     vertical-align: middle;
     padding: 5px 10px;
 }
 
 .confirm-table th {
-    background-color: #c0c1c2;
+    background-color: #faecc7;
     color: black;
 }
 
@@ -216,15 +224,20 @@ caption {
     text-align: center;
 }
 
-.form-title{
-    font-size: 13px;
+.confirm-group {
+    display: flex;
     font-weight: bold;
-    
 }
+
+.form-title{
+    font-weight: lighter;
+}
+
+
 
 /* checkout */
 .thanks{
-    background-color: #ebeced;
+    background-color: #faecc7;
     text-align: center;
     padding: 50px 0;
     justify-content: center;

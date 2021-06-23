@@ -47,48 +47,39 @@
                 </tr>  
         </table>
         <br>
+        <div class="subtitle">お客さま情報</div>
         @include('Cart/message')
         <form class="address-form" action="/cart/checkout" method="post">
             @csrf
-            <div class="subtitle">
-                <p>お客さま情報</p>
-            </div>
-            <div class="form-group">
-                <p class="form-title">お名前</lavel>
-                <p><?php echo $c_name; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">お名前：</p><p><?php echo $c_name; ?></p>
                 <input type="hidden" name="c_name" value="<?php echo $c_name; ?>">
             </div>
-            <div class="form-group">
-                <p class="form-title">お名前フリガナ（全角カナ）</lavel>                        
-                <p><?php echo $c_name_kana; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">お名前フリガナ：</p><p><?php echo $c_name_kana; ?></p>
                 <input type="hidden" name="c_name_kana" value="<?php echo $c_name_kana; ?>">
             </div> 
-            <div class="form-group">
-                <p class="form-title">電話番号（ハイフン不要）</label>                        
-                <p><?php echo $c_phone; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">電話番号：</p><p><?php echo $c_phone; ?></p>
                 <input type="hidden" name="c_phone" value="<?php echo $c_phone; ?>">
             </div>
-            <div class="form-group">
-                <p class="form-title">メールアドレス</label>                        
-                <p><?php echo $c_mail; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">メールアドレス：</p><p><?php echo $c_mail; ?></p>
                 <input type="hidden" name="c_mail" value="<?php echo $c_mail; ?>">
             </div>
-            <div class="form-group">
-                <p class="form-title">郵便番号（ハイフン不要）</label>                        
-                <p><?php echo $postcode; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">郵便番号：</p><p><?php echo $postcode; ?></p>
             <input type="hidden" name="postcode" value="<?php echo $postcode; ?>">
             </div>
-            <div class="form-group">
-                <p class="form-title">住所</label>
-                <p><?php echo $address; ?></p>
+            <div class="confirm-group">
+                <p class="form-title">住所：</p><p><?php echo $address; ?></p>
                 <input type="hidden" name="address" value="<?php echo $address; ?>">
-            </div>
-            
-            <div class="btn">
-                <button type="submit" class="btn-blue">注文確定</button>
             </div>
         </form>
     </div>
+        <div class="btn">
+            <button type="submit" class="btn-blue">注文確定</button>
+        </div>
         <div class="btn">
             <button type="button" class="btn-gray" onclick="location.href='/cart/address'">修正する</button>
         </div>
