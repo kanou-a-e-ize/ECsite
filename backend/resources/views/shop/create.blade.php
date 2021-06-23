@@ -56,11 +56,13 @@
                     <input type="file" name="image3" value="{{ $product->image3 }}" >
                 </div>
                 <div class="btn">
-                    <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
                     <button type="submit" class="btn-blue">保存</button>
                 </div> 
             </form>
         </div>
+            <div class="btn">
+                <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
+            </div> 
     </main>
     </body>
 </html>

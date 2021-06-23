@@ -108,10 +108,12 @@
                 
                 <div class="btn">
                     <button type="submit" class="btn-blue">注文確定</button>
-                    <button type="button" class="btn-gray" onclick="location.href='/cart/address'">修正する</button>
                 </div>
             </form>
         </div>
+            <div class="btn">
+                <button type="button" class="btn-gray" onclick="location.href='/cart/address'">修正する</button>
+            </div>
     </main>
     </body>
 </html>

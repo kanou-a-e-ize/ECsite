@@ -54,10 +54,12 @@
                     
                 <div class="btn">
                     <button type="submit" class="btn-blue">入力情報確認へ</button>
-                    <button type="button" class="btn-gray" onclick="location.href='/cart/mycart'">カート確認へ戻る</button>
                 </div>
             </form>
         </div>
+            <div class="btn">
+                <button type="button" class="btn-gray" onclick="location.href='/cart/mycart'">カート確認へ戻る</button>
+            </div>
         </main>
     </body>
 </html>
