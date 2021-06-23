@@ -26,74 +26,46 @@
     $stocks = isset($_SESSION['stocks'])? $_SESSION['stocks']:[];
 ?>
 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome Shop</title>
-        <!-- css -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    </head>
-    <body>
-    <header>
-            <h2>商品詳細</h2>
-           
-            <ul class="menu">
-                <li>ログイン中：{{ Auth::user()->name }} さん</li>
-                <li>
-                    <form action="/member/logout" method="post">
-                        @csrf
-                        <button type="submit">Log out</button>    
-                    </form>
-                </li>
-            </ul>
-    </header>
-    <main>
-        <div class="container">
-            <div class="detail">
-                <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="180" height="180">
-                <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="180" height="180">
-                <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="180" height="180">
-                <br>
-                <table class="detail-table">
-                    <tr>
-                        <th>商品名</th>
-                        <th>商品説明</th>
-                        <th>単価</th>
-                    </tr>
-                    <tr>
-                        <td>{{ $product->p_name }}</td>
-                        <td>{{ $product->p_detail }}</td>
-                        <td>¥{{ $product->p_price }}</td>
-                    </tr>
-                </table>
+@extends('cart/layout')
+@section('title', '商品詳細')
+@section('content') 
+    <div class="container">
+        <div class="detail">
+            <img src="{{ asset('storage/upload/') }}/{{$product->image1}}" alt="{{$product->image1}}" width="180" height="180">
+            <img src="{{ asset('storage/upload/') }}/{{$product->image2}}" alt="{{$product->image2}}" width="180" height="180">
+            <img src="{{ asset('storage/upload/') }}/{{$product->image3}}" alt="{{$product->image3}}" width="180" height="180">
+            <br>
+            <table class="detail-table">
+            <tr>
+                <th>商品名</th>
+                    <th>商品説明</th>
+                    <th>単価</th>
+                </tr>
+                <tr>
+                    <td>{{ $product->p_name }}</td>
+                    <td>{{ $product->p_detail }}</td>
+                    <td>¥{{ $product->p_price }}</td>
+                </tr>
+            </table>
             
-                <form action="detail" method="post" class="item-form">
-                @csrf
-                    <input type="hidden" name="order_p_id" value="{{ $product->p_id }}" >
-                    <input type="hidden" name="order_p_name" value="{{ $product->p_name }}" >
-                    <input type="hidden" name="order_p_price" value="{{ $product->p_price }}" >
-
-                    カート追加個数<input type="number" value="1" min="1" name="order_p_number"> 個
+            <form action="detail" method="post" class="item-form">
+            @csrf
+                <input type="hidden" name="order_p_id" value="{{ $product->p_id }}" >
+                <input type="hidden" name="order_p_name" value="{{ $product->p_name }}" >
+                <input type="hidden" name="order_p_price" value="{{ $product->p_price }}" >
+                カート追加個数<input type="number" value="1" min="1" name="order_p_number"> 個
                     <button type="submit" class="btn-blue">カートに入れる</button>
-                </form>
+            </form>
 
-            <!-- フラッシュメッセージ -->
-            @if (Session::has('message'))
-                <div class="flashmsg">{{ session('message') }}</div>
-            @endif
+        <!-- フラッシュメッセージ -->
+        @if (Session::has('message'))
+            <div class="flashmsg">{{ session('message') }}</div>
+        @endif
 
-            <main class="mt-4">
-            @yield('content')
-            </main>
-
-                <div class="btn">
-                    <button type="button" class="btn-gray" onclick="location.href='/cart/index'">商品一覧に戻る</button>
-                </div>
+            <div class="btn">
+                <button type="button" class="btn-gray" onclick="location.href='/cart/index'">商品一覧に戻る</button>
             </div>
         </div>
-    </main>
-    </body>
-</html>
+    </div>
+
+@endsection
