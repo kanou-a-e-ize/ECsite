@@ -130,5 +130,12 @@ class ShopController extends Controller
 
         return view('shop/manageorder', compact("orders"));
     }
+
+    public function customerinfo($customer_id)
+    {
+        $customer = Customer::findOrFail($customer_id);
+
+        return view('shop/customerInfo', compact('customer'));
+    } 
 }
 

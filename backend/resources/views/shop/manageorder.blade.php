@@ -24,7 +24,7 @@
                 <td>{{ $order->order_p_number }}</td>
                 <td>¥{{ $order->order_p_number*$order->order_p_price }}</td>
                 <td>{{ $order->created_at }}</td>
-                <td>{{ $order->customer_id }}</td>
+                <td><a href='/customer/{{ $order->customer_id }}/info'>{{ $order->customer_id }}</a></td>
                 <td>{{ $order->c_name }}</td>
             </tr>
             @endforeach    

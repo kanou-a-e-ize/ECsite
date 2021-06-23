@@ -41,6 +41,8 @@ Route::middleware('auth:user')->group(function () {
     Route::delete('product/{p_id}', 'ShopController@delete');
 
     Route::get('manageorder', 'ShopController@order');
+
+    Route::get('customer/{customer_id}/info', 'ShopController@customerinfo');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
