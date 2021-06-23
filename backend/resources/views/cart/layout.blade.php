@@ -16,7 +16,7 @@
             <ul class="menu">
                 <li>ログイン中：{{ Auth::user()->name }} さん</li>
                 <li>
-                    <form action="/logout" method="post">
+                    <form action="/member/logout" method="post">
                         @csrf
                         <button type="submit">Log out</button>    
                     </form>
