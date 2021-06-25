@@ -81,6 +81,17 @@ header .menu li {
     color: white;
 }
 
+.btn-orange {
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: orange;
+    border: none;
+    font-weight: bolder;
+    color: black;
+    margin-top: 10px;
+}
+
 .btn-order {
     font-size: 15px;
     padding: 10px 20px;
