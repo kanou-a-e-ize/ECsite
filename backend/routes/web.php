@@ -74,4 +74,15 @@ Route::middleware('auth:member')->group(function () {
     Route::post('cart/confirm', 'CartController@confirm');
 
     Route::post('cart/checkout', 'CartController@resister');
+
+    Route::get('cart/checkout', 'CartController@resister');
+});
+
+/* カート側未ログイン時 */
+Route::get('cart/confirm', function () {
+    return redirect('member/login');
+});
+
+Route::get('cart/checkout', function () {
+    return redirect('member/login');
 });
