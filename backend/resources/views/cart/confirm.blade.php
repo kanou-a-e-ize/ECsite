@@ -75,11 +75,12 @@
                 <p class="form-title">住所：</p><p><?php echo $address; ?></p>
                 <input type="hidden" name="address" value="<?php echo $address; ?>">
             </div>
+            <div class="btn">
+                <button type="submit" class="btn-order">注文確定</button>
+            </div>
         </form>
     </div>
-        <div class="btn">
-            <button type="submit" class="btn-order">注文確定</button>
-        </div>
+        
         <div class="btn">
             <button type="button" class="btn-gray" onclick="location.href='/cart/address'">修正する</button>
         </div>
