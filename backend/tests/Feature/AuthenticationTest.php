@@ -11,24 +11,32 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_login_screen_can_be_rendered()
+    protected $user;
+
+    public function test_ログイン画面の表示()
     {
         $response = $this->get('/login');
-
         $response->assertStatus(200);
+        // 認証されていないことを確認
+        $this->assertGuest();
     }
 
-    public function test_users_can_authenticate_using_the_login_screen()
+    public function test_ログイン認証(): void
     {
-        $user = User::factory()->create();
-
-        $response = $this->post('/login', [
-            'email' => $user->email,
+        $this->withoutMiddleware([VerifyCsrfToken::class]); // CSRFを無効化
+        
+        $this->user = User::factory()->create();
+        // 作成したテストユーザのemailとpasswordで認証リクエスト
+        $response = $this->post(route('login'), [
+            'email' => $this->user->email,
             'password' => 'password',
         ]);
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        // リクエスト送信後、正しくリダイレクト処理されていることを確認
+        $response->assertRedirect('/index');
+
+        // 指定したユーザーが認証されていることを確認
+        $this->assertAuthenticatedAs($this->user);
     }
 
     public function test_users_can_not_authenticate_with_invalid_password()
@@ -41,5 +49,25 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertGuest();
+    }
+
+    public function test_ログアウト(): void
+    {
+        $this->withoutMiddleware([VerifyCsrfToken::class]); // CSRFを無効化
+
+        $user = User::factory()->create();
+
+        $this->actingAs($user, 'user');
+        $this->assertAuthenticated();
+
+        $response = $this->post('/logout');
+
+        // ホーム画面にリダイレクト
+        $response->assertStatus(302)
+                 ->assertRedirect('/login');
+                 
+        // 認証されていないことを確認
+        $this->assertGuest();
+
     }
 }
