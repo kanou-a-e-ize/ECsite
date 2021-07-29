@@ -29,9 +29,7 @@
             </tr>
             @endforeach    
         </table>
-        <div class="btn">
-            <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
-        </div>
+            <button type="button" class="btn-gray1" onclick="location.href='index'">商品一覧に戻る</button>
     </div>
     
 @endsection

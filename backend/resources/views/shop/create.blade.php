@@ -30,13 +30,10 @@
                 <label for="image3">商品画像3</label><br>
                 <input type="file" name="image3" value="{{ $product->image3 }}" >
             </div>
-            <div class="btn">
-                <button type="submit" class="btn-orange">保存</button>
-            </div> 
+            <button type="submit" class="btn-orange">保存</button>
         </form>
+    
+        <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
     </div>
-        <div class="btn">
-            <button type="button" class="btn-gray" onclick="location.href='index'">商品一覧に戻る</button>
-        </div>
 
 @endsection

@@ -20,10 +20,8 @@
                     <td>¥{{ $product->p_price }}</td>
                 </tr>
             </table>
-            <div class="btn">
-                <button type="button" class="btn-gray" onclick="location.href='/index'">商品一覧に戻る</button>
-            </div>        
         </div>
+           <button type="button" class="btn-gray" onclick="location.href='/index'">商品一覧に戻る</button>   
     </div>
 
 @endsection

@@ -2,7 +2,7 @@
 @section('title', '注文者情報')
 @section('content')       
 
-    <div class="container">
+    <div class="container-manageorder">
         <table class="manegeorder-table">
             <tr>
                 <th>顧客ID</th>
@@ -23,9 +23,8 @@
                 <td>{{ $customer->address }}</td>
             </tr>
         </table>
-        <div class="btn">
-            <button type="button" class="btn-gray" onclick="location.href='/manageorder'">注文一覧に戻る</button>
-        </div>
+            <button type="button" class="btn-gray2" onclick="location.href='/manageorder'">注文一覧に戻る</button>
+        
     </div>
     
 @endsection
